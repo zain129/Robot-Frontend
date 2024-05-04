@@ -39,7 +39,7 @@ public class RobotBackendIntegration {
                 .build();
         ResponseEntity<List<CommandResponseDTO>> listResponseEntity = restTemplate.exchange(uri, HttpMethod.POST,
                 CommonRestUtil.buildHttpEntityRequest(commandRequestDTO, MediaType.APPLICATION_JSON),
-                new ParameterizedTypeReference<List<CommandResponseDTO>>() {
+                new ParameterizedTypeReference<>() {
                 });
 
         if (listResponseEntity.hasBody()) {
