@@ -1,0 +1,6 @@
+spring:
+    application:
+        name: RobotFrontend
+
+server:
+    port: 8091
