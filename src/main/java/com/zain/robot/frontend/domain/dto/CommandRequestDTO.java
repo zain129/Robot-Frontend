@@ -2,8 +2,6 @@ package com.zain.robot.frontend.domain.dto;
 
 import lombok.*;
 
-import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -11,5 +9,8 @@ import java.util.List;
 @Builder
 @ToString
 public class CommandRequestDTO {
-    private List<String> listOfCommands;
+    private String stringCommand;
+    private Long currentRowPosition;
+    private Long currentColPosition;
+    private String facePosition;
 }
