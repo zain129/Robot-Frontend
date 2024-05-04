@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import java.io.IOException;
+
 @ControllerAdvice
 public class RobotFrontendExceptionHandler extends ResponseEntityExceptionHandler {
 
@@ -21,6 +23,11 @@ public class RobotFrontendExceptionHandler extends ResponseEntityExceptionHandle
     public ResponseEntity<Object> handleClassCastException(final ClassCastException ex, final WebRequest request) {
         final String message = "Exception thrown during class cast";
         return handleExceptionInternal(ex, message, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler({IOException.class})
+    public ResponseEntity<Object> handleIOException(final IOException ex, final WebRequest request) {
+        return handleExceptionInternal(ex, ex.getLocalizedMessage(), new HttpHeaders(), HttpStatus.EXPECTATION_FAILED, request);
     }
 
     @ExceptionHandler({NullPointerException.class, IllegalArgumentException.class, IllegalStateException.class})
