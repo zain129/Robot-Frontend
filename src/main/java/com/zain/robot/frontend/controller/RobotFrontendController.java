@@ -21,6 +21,7 @@ public class RobotFrontendController {
     @GetMapping("/")
     public ModelAndView viewHomePage(Model model) {
         ModelAndView modelAndView = new ModelAndView("index");
+        modelAndView.addObject("commands", null);
         modelAndView.addObject("rowPosition", 0);
         modelAndView.addObject("colPosition", 0);
 

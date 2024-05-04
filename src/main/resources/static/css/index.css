@@ -1,0 +1,58 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 50px);
+    grid-template-rows: repeat(5, 50px);
+    gap: 1px; /* Gap between grid items */
+}
+.grid-item {
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f0f0f0; /* Background color for grid items */
+}
+
+table {
+    border-collapse: collapse;
+    width: 250px; /* Set the width of the table */
+    text-align: center;
+    vertical-align: center;
+    margin-left: 42%;
+}
+th, td {
+    border: 1px solid black; /* Add borders to cells */
+    width: 50px; /* Set the width of each cell */
+    height: 50px; /* Set the height of each cell */
+    text-align: center; /* Center text in cells */
+    min-width: 50px; /* Set minimum width of each cell */
+    min-height: 50px; /* Set minimum height of each cell */
+}
+.robot {
+    background-size: contain; /* Make sure the image fits within the cell */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-position: center; /* Center the image */
+    background-image: url('../img/robot.png');
+}
+/* Robot facing up */
+.robot-up {
+    background-image: url('../img/arrow-up.png');
+}
+/* Robot facing down */
+.robot-down {
+    background-image: url('../img/arrow-down.png');
+}
+/* Robot facing left */
+.robot-left {
+    background-image: url('../img/arrow-left.png');
+}
+/* Robot facing right */
+.robot-right {
+    background-image: url('../img/arrow-right.png');
+}
+
+
+.center-align {
+    text-align: center;
+}

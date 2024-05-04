@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Assignment by Idealo</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <h1 class="center-align">Robot Movement</h1>
+
+    <div class="center-align">
+        <span>Current Command: <h3 th:text="${commands == null} ? 'Initial State': ' ' "></h3></span>
+    </div>
+
+    <div th:if="${commands == null}">
+        <table>
+            <tbody>
+            <!-- Created a 5x5 grid using Thymeleaf -->
+            <tr th:each="row, rowStat : ${#numbers.sequence(1,5)}">
+                <td th:each="col, colStat : ${#numbers.sequence(1,5)}"
+                    th:class="${rowStat.index == rowPosition and colStat.index == colPosition} ? 'robot' : ''">
+                    <!-- Initially applied 'robot' class to the cell at 0x0 -->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br/>
+        <form action="/execute-commands" method="post" >
+            <button type="submit" class="btn btn-success" style="margin-left: 45%;">Execute Commands</button>
+        </form>
+    </div>
+
+</body>
+</html>
