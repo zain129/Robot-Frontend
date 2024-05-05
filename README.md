@@ -5,8 +5,14 @@ This repository contains the frontend (UI) implementation for the assignment pro
 * The purpose of this project is to facilitate the UI of the robot application. <br>
 * It consumes the backend POST API to send commands and receive the response. <br>
 * Upon receiving the response successfully, the command execution will be carried out by displaying on the page. <br>
-* In case of incorrect commands, no UI change will be made. <br>
+* In case of incorrect commands, no UI change will be made. (Not covered in this assignment) <br>
 
+### How to run the project
+* Clone the robot-backend project from  <link>https://github.com/zain129/Robot-Backend/tree/develop</link> and set-up using IntelliJ or any other IDE.
+  * Hit the URL <link>http://localhost:8090/swagger-ui/index.html</link> to ensure that the backend is up and running.
+* Clone the robot-frontend project from  <link>https://github.com/zain129/Robot-Frontend/tree/develop</link> and set-up using IntelliJ or any other IDE.
+  * Goto <link>http://localhost:8091/</link>
+  * Click on button "Execute Commands"
 
 ### Summary
 #### What was expected?
