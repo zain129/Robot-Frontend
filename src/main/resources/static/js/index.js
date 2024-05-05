@@ -30,7 +30,10 @@ function moveRobot() {
             $('#colPosition').val(colPosition);
             $('#facePosition').val(facePosition);
 
-            $('#commandForm').delay(5000).submit();
+            $('#commandForm').delay(2000).queue(function(next) {
+                $(this).submit();
+                next();
+            });
         }
 
     }
