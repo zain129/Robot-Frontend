@@ -12,4 +12,19 @@ public class RobotFrontendConstant {
             "FORWARD 1",
             "RIGHT",
             "FORWARD 2");
+
+    /**
+     * Face Positions
+     */
+    public static final String FACE_RIGHT = "RIGHT";
+    public static final String FACE_LEFT = "LEFT";
+    public static final String FACE_UP = "UP";
+    public static final String FACE_DOWN = "DOWN";
+
+    /**
+     * Commands
+     */
+    public static final String POSITION = "POSITION";
+    public static final String TURNAROUND = "TURNAROUND";
+    public static final String RIGHT = "RIGHT";
 }
