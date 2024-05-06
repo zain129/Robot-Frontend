@@ -4,6 +4,7 @@ import java.util.List;
 
 public class RobotFrontendConstant {
     public static final String ROBOT_BACKEND_EXECUTE_COMMAND_URL = "/execute-commands";
+    public static final String ROBOT_BACKEND_EXECUTE_ALL_COMMAND_URL = "/execute-all-commands";
     public static final List<String> PRE_DEFINED_COMMANDS = List.of(
             "POSITION 1 3 EAST",
             "FORWARD 3",
