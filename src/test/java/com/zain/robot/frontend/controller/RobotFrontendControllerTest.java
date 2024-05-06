@@ -20,7 +20,6 @@ import static org.mockito.Mockito.when;
 
 @ContextConfiguration(classes = {RobotFrontendController.class})
 @ExtendWith(SpringExtension.class)
-@DisabledInAotMode
 class RobotFrontendControllerTest {
     @Autowired
     private RobotFrontendController robotFrontendController;
