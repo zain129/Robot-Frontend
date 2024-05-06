@@ -31,3 +31,10 @@ This repository contains the frontend (UI) implementation for the assignment pro
 * Code review will be done and review comments will be resolved (if any).
 * A pull-request will be raised to merge code from develop branch into master branch.
 
+<br/>
+
+#### Credits
+* https://stackoverflow.com
+* https://www.thymeleaf.org/documentation.html
+* https://www.baeldung.com/spring-thymeleaf-css-js
+* https://docs.diffblue.com/
