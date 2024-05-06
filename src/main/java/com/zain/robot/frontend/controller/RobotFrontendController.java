@@ -6,12 +6,14 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -45,6 +47,18 @@ public class RobotFrontendController {
         modelAndView.addObject("colPosition", commandResponseDTO.getNewColPosition());
         modelAndView.addObject("facePosition", commandResponseDTO.getFacePosition());
         modelAndView.addObject("commandScriptIndexNumber", commandScriptIndexNumber);
+
+        return modelAndView;
+    }
+
+    @PostMapping("/execute-all-command")
+    public ModelAndView executeCommand(@ModelAttribute(value = "commandsBox") String commandsBox) throws IOException {
+        List<CommandResponseDTO> commandResponseDTOList = robotFrontendService.executeAllCommand(commandsBox);
+
+        ModelAndView modelAndView = new ModelAndView("customCommandPage");
+        modelAndView.addObject("commandResponses", commandResponseDTOList.toArray());
+        modelAndView.addObject("commandResponsesSize", CollectionUtils.isEmpty(commandResponseDTOList) ? 0 : commandResponseDTOList.size());
+
 
         return modelAndView;
     }
