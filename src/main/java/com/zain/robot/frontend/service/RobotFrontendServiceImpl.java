@@ -23,7 +23,7 @@ public class RobotFrontendServiceImpl implements RobotFrontendService {
 
     private final RobotBackendIntegration robotBackendIntegration;
 
-    public CommandResponseDTO executeCommand(String commandScriptIndexNumber, String rowPosition, String colPosition, String facePosition) throws IOException {
+    public CommandResponseDTO executeCommand(String commandScriptIndexNumber, String rowPosition, String colPosition, String facePosition) {
         log.info("Entered executePredefinedCommand method to call the backend API and execute commands");
         String command = RobotFrontendConstant.PRE_DEFINED_COMMANDS.get(Integer.parseInt(commandScriptIndexNumber));
         facePosition = deduceFacePosition(facePosition, command);
@@ -51,14 +51,14 @@ public class RobotFrontendServiceImpl implements RobotFrontendService {
     }
 
     @Override
-    public List<CommandResponseDTO> executeAllCommand(String commandString) throws IOException {
+    public List<CommandResponseDTO> executeAllCommand(String commandString) {
         String[] commands = commandString.split(";");
         List<CommandRequestDTO> commandRequestDTOList = new ArrayList<>();
         for (String command : commands) {
             commandRequestDTOList.add(CommandRequestDTO.builder().stringCommand(command.trim()).build());
         }
 
-        List<CommandResponseDTO> commandResponseDTOList = new ArrayList<>();
+        List<CommandResponseDTO> commandResponseDTOList;
         ResponseEntity<List<CommandResponseDTO>> listResponseEntity = robotBackendIntegration.fetchListOfCommandResponses(commandRequestDTOList);
         if (listResponseEntity.hasBody()) {
             commandResponseDTOList = listResponseEntity.getBody();
