@@ -55,6 +55,14 @@ function setInitialValues() {
     $('#facePosition').val("DOWN");
 }
 
+$('#button-addon1').click(function(){
+    $('#commandForm').attr('action', '/execute-all-command');
+    $('#commandForm').delay(2000).queue(function(next) {
+        $(this).submit();
+        next();
+    });
+});
+
 
 $(document).ready(function() {
     moveRobot();
